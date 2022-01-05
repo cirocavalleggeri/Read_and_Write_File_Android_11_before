@@ -35,14 +35,16 @@ public class MainActivity extends AppCompatActivity {
         if(SDK_INT<23){
             Utility.scrivilog(SDK_INT, "Scrivo senza chiedere  permessi");
         }
-        if((SDK_INT>=23)&&(SDK_INT<27)) {
+        if((SDK_INT>=23)&&(SDK_INT<30)) {
             Log.d("MOM","Version sdk:"+ SDK_INT);
+            textView.setText("permessi di scrittura concessi!Puoi scrivere file sul dispositivo");
             chiediipermessiscritturalettura();
         }
-        if(SDK_INT>=27){
+        if(SDK_INT>=30){
             //ToDo
             if(Utility.leggichiavefile(this,"SDK11 E SUPERIORE","PERMESSI_SCRITTURA",false)){
                 Utility.scrivilog(SDK_INT, "Scrivo senza chiedere più permessi");
+                textView.setText("permessi di scrittura concessi!Puoi scrivere file sul dispositivo");
             }else {
                  requestPermission();
             }
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     REQUEST_WRITE_EXTERNAL_STORAGE);
 
         } else {
-
+            textView.setText("permessi di scrittura concessi!Puoi scrivere file sul dispositivo");
             Toast.makeText(this, "Permission Log File ottenuti ", Toast.LENGTH_SHORT).show();
             Utility.scrivilog(SDK_INT, "Scrivo senza chiedere più permessi");
             //ReadExternalStorage();
@@ -83,6 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     if (permission.equals( android.Manifest.permission.READ_EXTERNAL_STORAGE) || permission.equals( READ_EXTERNAL_STORAGE)) {
                         if (grantResult == PackageManager.PERMISSION_GRANTED) {
                             // ReadExternalStorage();
+                            textView.setText("permessi di scrittura concessi!Puoi scrivere file sul dispositivo");
                             Utility.scrivilog(SDK_INT, "Versione sdk ha ottenuto i permessi di scrittura");
                             Toast.makeText(this, "Permission read File ottenuti vedi in download", Toast.LENGTH_SHORT).show();
                         } else {
@@ -100,6 +103,7 @@ public class MainActivity extends AppCompatActivity {
                     if (permission.equals( WRITE_EXTERNAL_STORAGE) || permission.equals( WRITE_EXTERNAL_STORAGE)) {
                         if (grantResult == PackageManager.PERMISSION_GRANTED) {
                             // ReadExternalStorage();
+                            textView.setText("permessi di scrittura concessi!Puoi scrivere file sul dispositivo");
                             Utility.scrivilog(SDK_INT, "Versione sdk ha ottenuto i permessi di scrittura");
                             Toast.makeText(this, "Permission write File ottenuti vedi in download", Toast.LENGTH_SHORT).show();
 
@@ -154,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == 2237) {
             if (SDK_INT >= Build.VERSION_CODES.R) {
                 if (Environment.isExternalStorageManager()) {
-
+                    textView.setText("permessi di scrittura concessi!Puoi scrivere file sul dispositivo");
                     Utility.scrivilog(SDK_INT, "Versione sdk ha ottenuto i permessi di scrittura");
                     Utility.Scrivichiavefile(this,"SDK11 E SUPERIORE","PERMESSI_SCRITTURA",true);
                     Log.d("MOM","perform action");

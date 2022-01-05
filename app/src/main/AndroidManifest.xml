@@ -8,8 +8,10 @@
         tools:ignore="ScopedStorage"/>-->
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--MANAGE_EXTERNAL_STORAGE per sdk_INT=30-->
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"
         tools:ignore="ScopedStorage"/>
+    <!--android:requestLegacyExternalStorage="true" per SDK_INT=29 per la scrittura file-->
     <application
         android:allowBackup="true"
         android:requestLegacyExternalStorage="true"

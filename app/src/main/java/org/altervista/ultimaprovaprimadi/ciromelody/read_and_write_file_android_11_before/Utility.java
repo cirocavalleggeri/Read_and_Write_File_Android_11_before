@@ -21,6 +21,7 @@ import java.io.OutputStreamWriter;
 import java.util.Date;
 
 import static android.content.ContentValues.TAG;
+import static android.os.Build.VERSION.SDK_INT;
 
 /**
  * Created by samvision on 10/02/2017.
@@ -91,6 +92,7 @@ public class Utility {
             @RequiresApi(api = Build.VERSION_CODES.N)
             public void run() {
                 // network stuff...
+
                 Log.i(TAG,"provo a scrivere______________");
                 try {
                     File directory = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator + "OWL_logs");
@@ -103,6 +105,7 @@ public class Utility {
                         }
                     }
                     //String currentDateString = new SimpleDateFormat("yyyyMMdd").format(new Date() );
+
                     String currentTimeString = new SimpleDateFormat("HH:mm").format(new Date());
                     String currentDateString =new SimpleDateFormat("YYMMdd").format(new Date());
                     String filename = currentDateString + "_worker.txt";

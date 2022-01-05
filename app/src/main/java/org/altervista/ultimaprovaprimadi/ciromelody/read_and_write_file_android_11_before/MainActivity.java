@@ -32,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         textView=findViewById(R.id.id_textview);
+        if(SDK_INT<23){
+            Utility.scrivilog(SDK_INT, "Scrivo senza chiedere  permessi");
+        }
         if((SDK_INT>=23)&&(SDK_INT<27)) {
             Log.d("MOM","Version sdk:"+ SDK_INT);
             chiediipermessiscritturalettura();
